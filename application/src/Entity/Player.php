@@ -51,17 +51,6 @@ class Player implements UserInterface, \Serializable
      */
     private $createdAt;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Character", mappedBy="player", orphanRemoval=true)
-     * @ApiSubresource(maxDepth=1)
-     */
-    private $characters;
-
-    public function __construct()
-    {
-        $this->characters = new ArrayCollection();
-    }
-
     public function getId()
     {
         return $this->id;
@@ -155,36 +144,5 @@ class Player implements UserInterface, \Serializable
             $this->password,
             $this->salt
             ) = unserialize($serialized);
-    }
-
-    /**
-     * @return Collection|Character[]
-     */
-    public function getCharacters(): Collection
-    {
-        return $this->characters;
-    }
-
-    public function addCharacter(Character $character): self
-    {
-        if (!$this->characters->contains($character)) {
-            $this->characters[] = $character;
-            $character->setPlayer($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCharacter(Character $character): self
-    {
-        if ($this->characters->contains($character)) {
-            $this->characters->removeElement($character);
-            // set the owning side to null (unless already changed)
-            if ($character->getPlayer() === $this) {
-                $character->setPlayer(null);
-            }
-        }
-
-        return $this;
     }
 }

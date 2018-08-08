@@ -4,3 +4,4 @@
 /data/
 /etc/nifi/conf/archive/
 /var/lib/
+/application/node_modules/

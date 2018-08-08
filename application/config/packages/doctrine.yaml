@@ -31,4 +31,5 @@ doctrine:
         type: service
         id: snc_second_level_cache
       enabled: true
+      log_enabled: true
       region_lifetime: 86400

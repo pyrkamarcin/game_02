@@ -1,5 +1,12 @@
 {
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.1.0",
+    "webpack-notifier": "^1.6.0"
+  },
   "dependencies": {
-    "bulma": "^0.7.1"
+    "bulma": "^0.7.1",
+    "jquery": "^3.3.1"
   }
 }
