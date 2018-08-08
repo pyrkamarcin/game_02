@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <form class="ui large form" action="{{ path('login') }}" method="post">
+        <div class="field">
+            <input class="input" id="username" name="_username" value="{{ last_username }}" type="text"
+                   placeholder="Login">
+        </div>
+        <div class="field">
+            <input class="input" type="password" id="password" name="_password" placeholder="Password">
+        </div>
+        <div class="field">
+            <input class="ui checkbox" type="checkbox" id="remember_me" name="_remember_me" checked/>
+            <label for="remember_me">Keep me logged in</label>
+        </div>
+        <div class="field">
+            <button class="button is-success" type="submit">
+                Login
+            </button>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <input type="hidden" name="_target_path" value="/account"/>
+    </form>
+
+{% endblock %}

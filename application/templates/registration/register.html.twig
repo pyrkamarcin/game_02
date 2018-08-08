@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="ui text container">
+        <form class="ui large form" name="user" method="post">
+
+            <div class="field">{{ form_row(form.username) }}</div>
+            <div class="field">{{ form_row(form.email) }}</div>
+            <div class="field">{{ form_row(form.password.first) }}</div>
+            <div class="field">{{ form_row(form.password.second) }}</div>
+            {{ form_row(form._csrf_token) }}
+            <button class="ui button" type="submit">Register!</button>
+        </form>
+
+    </div>
+{% endblock %}
