@@ -40,7 +40,7 @@ class AbilityController extends AbstractController
             $em->persist($ability);
             $em->flush();
 
-            return $this->redirectToRoute('ability_index');
+            return $this->redirectToRoute('ability_index', ['character' => $character->getId()]);
         }
 
         return $this->render('ability/new.html.twig', [
