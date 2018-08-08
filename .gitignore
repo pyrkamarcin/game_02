@@ -1,0 +1,6 @@
+/.docker-sync
+/.idea
+/.env
+/data/
+/etc/nifi/conf/archive/
+/var/lib/

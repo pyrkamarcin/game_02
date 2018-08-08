@@ -13,8 +13,8 @@ services:
       POSTGRES_PASSWORD: user
       POSTGRES_USER: user
       POSTGRES_CHARSET: "UTF8"
-#    volumes:
-#      - ./var/lib/postgresql/data:/var/lib/postgresql/data
+    volumes:
+      - ./var/lib/postgresql/data:/var/lib/postgresql/data
     networks:
       - default
     ports:
