@@ -51,6 +51,16 @@ class Player implements UserInterface, \Serializable
      */
     private $createdAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Town", mappedBy="player")
+     */
+    private $towns;
+
+    public function __construct()
+    {
+        $this->towns = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -144,5 +154,36 @@ class Player implements UserInterface, \Serializable
             $this->password,
             $this->salt
             ) = unserialize($serialized);
+    }
+
+    /**
+     * @return Collection|Town[]
+     */
+    public function getTowns(): Collection
+    {
+        return $this->towns;
+    }
+
+    public function addTown(Town $town): self
+    {
+        if (!$this->towns->contains($town)) {
+            $this->towns[] = $town;
+            $town->setPlayer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTown(Town $town): self
+    {
+        if ($this->towns->contains($town)) {
+            $this->towns->removeElement($town);
+            // set the owning side to null (unless already changed)
+            if ($town->getPlayer() === $this) {
+                $town->setPlayer(null);
+            }
+        }
+
+        return $this;
     }
 }
