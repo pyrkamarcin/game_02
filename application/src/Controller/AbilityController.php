@@ -83,7 +83,7 @@ class AbilityController extends AbstractController
     }
 
     /**
-     * @Route("/character/{$character}/ability/{$ability}", name="ability_delete", methods="DELETE")
+     * @Route("/character/{character}/ability/{ability}", name="ability_delete", methods="DELETE")
      */
     public function delete(Request $request, Character $character, Ability $ability): Response
     {
@@ -93,6 +93,6 @@ class AbilityController extends AbstractController
             $em->flush();
         }
 
-        return $this->redirectToRoute('ability_index');
+        return $this->redirectToRoute('ability_index', ['character' => $character->getId()]);
     }
 }
