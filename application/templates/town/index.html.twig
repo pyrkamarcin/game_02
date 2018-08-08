@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Town index{% endblock %}
+
+{% block body %}
+    <h1>Town index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>PosX</th>
+                <th>PosY</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for town in towns %}
+            <tr>
+                <td>{{ town.id }}</td>
+                <td>{{ town.name }}</td>
+                <td>{{ town.posX }}</td>
+                <td>{{ town.posY }}</td>
+                <td>
+                    <a href="{{ path('town_show', {'id': town.id}) }}">show</a>
+                    <a href="{{ path('town_edit', {'id': town.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('town_new') }}">Create new</a>
+{% endblock %}

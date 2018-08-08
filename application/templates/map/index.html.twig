@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <table class="table">
+        {% for col in map %}
+            <div class="columns">
+                {% for row in col %}
+                    <div class="column">
+                        {% if row %}
+                            {% for item in row %}
+                                {{ item.name }}
+                            {% endfor %}
+                        {% else %}
+                            pusto
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </table>
+
+{% endblock %}
