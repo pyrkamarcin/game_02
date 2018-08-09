@@ -2,11 +2,9 @@
 
 namespace App\Domain;
 
-use App\Repository\TownRepository;
-
 class Map
 {
-    const SIZE = 12;
+    const SIZE = 10;
     private $map = [];
 
     public function __construct()

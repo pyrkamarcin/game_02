@@ -16,21 +16,7 @@ class MapController extends Controller
      */
     public function index()
     {
-
-        $town = new Town();
-        $town->setName('test');
-        $town->setPosX(2);
-        $town->setPosY(5);
-
-        $map = new Map();
-        $map->placeTowns([$town]);
-
-        dump($town);
-        dump($map);
-
         return $this->render('map/index.html.twig', [
-            'map' => $map->getMap(),
-            'test' => 'test'
         ]);
     }
 }
