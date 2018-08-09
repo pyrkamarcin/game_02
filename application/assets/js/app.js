@@ -99,6 +99,8 @@ Game.tick = function (elapsed) {
 
     this.update(delta);
     this.render();
+
+    console.log('frame render');
 }.bind(Game);
 
 Game.render = function () {
