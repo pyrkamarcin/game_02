@@ -10,42 +10,37 @@
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="container">
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="{{ path('homepage') }}">
-                    Główna
-                </a>
-                {% if app.user %}
-                    <a class="navbar-item" href="{{ path('account_index') }}">
-                        Konto
-                    </a>
-                    <a class="navbar-item" href="{{ path('logout') }}">
-                        Wyloguj
-                    </a>
-                {% else %}
-                    <a class="navbar-item" href="{{ path('login') }}">
-                        Zaloguj
-                    </a>
-                    <a class="navbar-item" href="{{ path('user_registration') }}">
-                        Zarejestruj
-                    </a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
+{#<nav class="navbar">#}
+{#<div class="container">#}
+{#<div class="navbar-menu">#}
+{#<div class="navbar-end">#}
+{#<a class="navbar-item" href="{{ path('homepage') }}">#}
+{#Główna#}
+{#</a>#}
+{#{% if app.user %}#}
+{#<a class="navbar-item" href="{{ path('account_index') }}">#}
+{#Konto#}
+{#</a>#}
+{#<a class="navbar-item" href="{{ path('logout') }}">#}
+{#Wyloguj#}
+{#</a>#}
+{#{% else %}#}
+{#<a class="navbar-item" href="{{ path('login') }}">#}
+{#Zaloguj#}
+{#</a>#}
+{#<a class="navbar-item" href="{{ path('user_registration') }}">#}
+{#Zarejestruj#}
+{#</a>#}
+{#{% endif %}#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
+{#</nav>#}
 
     {% block body %}{% endblock %}
 
-</div>
-
 {% block javascripts %}
     <script src="{{ asset('build/app.js') }}"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 {% endblock %}
 </body>
 </html>
