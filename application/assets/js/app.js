@@ -93,7 +93,7 @@ var map = {
 Game.load = function () {
     return [
         Loader.loadImage('tiles', '../images/tiles.png'),
-        Loader.loadImage('character', '../images/23vgo5k.png')
+        Loader.loadImage('character', '../images/magnus.gif')
     ];
 };
 
